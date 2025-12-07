@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
+import Product from "./models/Product.js";
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ app.post("/api/products", async (req, res) => {
   if (!product.name || !product.price || !product.image) {
     return res
       .status(400)
-      .json({ sucess: false, message: "Please provide all the fields" });
+      .json({ success: false, message: "All fields are required" });
   }
 
   const newProduct = new Product(product);
@@ -30,7 +31,7 @@ app.post("/api/products", async (req, res) => {
 
 console.log(process.env.MONGO_URI);
 
-app.listen(500, () => {
+app.listen(50, () => {
   connectDB();
-  console.log("Server is started at http://localhost:500");
+  console.log("Server is started at http://localhost:50");
 });
