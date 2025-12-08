@@ -78,4 +78,3 @@ app.listen(5001, () => {
   connectDB();
   console.log("Server is started at http://localhost:5001");
 });
-0;
